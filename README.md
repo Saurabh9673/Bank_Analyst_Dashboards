@@ -77,6 +77,52 @@ It concludes that many of the customers are about to repay their loan amount for
 
 # Power BI Dashboard
 
+## Bank Loan Report Dashboard
+
+### Overview
+This Power BI dashboard provides a comprehensive summary of bank loan applications, funding amounts, and performance metrics. It visualizes key financial indicators and loan statuses, helping stakeholders make informed decisions.
+
+### Key Metrics
+- **Total Loan Applications**: 39.7K (Month-to-Date: 4.4K, Month-over-Month: 6.4%)
+- **Total Funded Amount**: $445.6M (MTD: $55M, MoM: 12.6%)
+- **Total Amount Received**: $482.7M (MTD: $59M, MoM: 15.4%)
+- **Total Average Interest Rate**: 12% (MTD: 12%, MoM: 3.4%)
+- **Average Debt-to-Income Ratio (DTI)**: 13.3 (MTD: 14, MoM: 2.4%)
+
+### Loan Performance
+#### Good Loans
+- **Percentage of Good Loans**: 85.8%
+- **Good Loan Applications**: 34.1K
+- **Good Loan Funded Amount**: $377.5M
+- **Good Loan Received Amount**: $444.2M
+
+#### Bad Loans
+- **Percentage of Bad Loans**: 14.2%
+- **Bad Loan Applications**: 5.6K
+- **Bad Loan Funded Amount**: $68.1M
+- **Bad Loan Received Amount**: $38.5M
+
+### Loan Status Breakdown
+| Loan Status  | Total Loan Applications | Total Funded Amount | Total Amount Received | MTD Funded Amount | MTD Avg Interest Rate |
+|--------------|-------------------------|----------------------|-----------------------|--------------------|-----------------------|
+| Fully Paid   | 32,950                  | $358,049,725         | $419,314,515.68       | $42,026,450        | 11.73%                |
+| Charged Off  | 5,627                   | $68,111,375          | $38,477,600.11        | $8,985,250         | 14.18%                |
+| Current      | 1,140                   | $19,441,550          | $24,912,278.14        | $3,994,125         | 15.97%                |
+| **Total**    | **39,717**              | **$445,602,650**     | **$482,704,393.92**   | **$55,005,825**    | **12.32%**            |
+
+### Insights
+- The dashboard indicates a healthy proportion of good loans (85.8%) compared to bad loans (14.2%).
+- Month-to-date metrics show positive trends in funding and received amounts, suggesting effective loan processing and customer engagement.
+- The average interest rates and DTI ratios are within reasonable ranges, indicating manageable debt levels for borrowers.
+
+### Conclusion
+This Power BI dashboard serves as a vital tool for analyzing the bank's loan portfolio, providing insights into loan performance, application trends, and financial health. Stakeholders can utilize this data to strategize and optimize loan offerings.
+
+### How to Use
+- Clone the repository and open the Power BI file to explore the dashboard.
+- Use filters to analyze specific states, grades, and purposes of loans.
+
+
 ![1](https://github.com/user-attachments/assets/ad9c0c8f-ca95-462b-b768-d2da520e68d1)
 
 ![2](https://github.com/user-attachments/assets/d9bf30bf-223b-4be6-928b-3e8bfeefdd36)
