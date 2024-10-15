@@ -77,7 +77,7 @@ It concludes that many of the customers are about to repay their loan amount for
 
 # Power BI Dashboard
 
-## Bank Loan Report Dashboard
+## 1st Bank Loan Report Dashboard
 
 ### Overview
 This Power BI dashboard provides a comprehensive summary of bank loan applications, funding amounts, and performance metrics. It visualizes key financial indicators and loan statuses, helping stakeholders make informed decisions.
@@ -124,6 +124,34 @@ This Power BI dashboard serves as a vital tool for analyzing the bank's loan por
 
 
 ![1](https://github.com/user-attachments/assets/ad9c0c8f-ca95-462b-b768-d2da520e68d1)
+
+
+# 2nd Bank Loan Report Dashboard
+
+## Overview
+This Power BI dashboard provides a comprehensive overview of bank loan applications, funded amounts, and borrower demographics. It serves as a powerful tool for analyzing loan trends, performance metrics, and borrower profiles.
+
+## Visualizations
+1. **Total Loan Applications by Month**: A line chart displaying monthly application trends.
+2. **Total Loan Applications by Employment Length**: A bar chart illustrating loan applications based on the length of employment.
+3. **Geographic Distribution**: A map visualizing loan applications by state.
+4. **Loan Applications by Term**: A pie chart showing the distribution of loan terms (36 months vs. 60 months).
+5. **Loan Applications by Purpose**: A bar chart categorizing applications based on their purpose (e.g., debt consolidation, home improvement).
+6. **Home Ownership Status**: A pie chart breaking down applications by home ownership (rent, mortgage, own).
+
+## Filters
+- **Select Measure**: Choose the metric to display (e.g., Total Loan Application).
+- **State**: Filter by state.
+- **Grade**: Filter by loan grade.
+- **Purpose**: Filter by loan purpose.
+
+## Insights
+- The dashboard allows for real-time analysis of loan application trends, helping identify peak periods and potential areas for growth.
+- Understanding borrower demographics and loan purposes can guide targeted marketing strategies and product offerings.
+- The geographic distribution of applications provides insights into regional demand and opportunities for expansion.
+
+## Usage
+This dashboard is designed for bank analysts and decision-makers to monitor loan performance and make data-driven decisions.
 
 ![2](https://github.com/user-attachments/assets/d9bf30bf-223b-4be6-928b-3e8bfeefdd36)
 
@@ -208,6 +236,56 @@ Output Query :
 
 
 ## Tableau Dashboard
+
+## Overview
+The Bank Loan Dashboard provides a comprehensive analysis of loan data, focusing on various metrics such as loan amounts, payment statuses, and borrower demographics. This interactive dashboard is designed to assist stakeholders in understanding loan distributions, trends, and performance metrics effectively.
+
+## Key Features
+
+### 1. **Total Loan Metrics**
+- **Total Loan Amount**: 445.6M
+- **Total Funded Amount**: 434.8M
+- **Total Applications**: 39.7K
+
+### 2. **Home Ownership Analysis**
+- Displays the relationship between home ownership status and last payment dates across different years.
+- Provides insights into how ownership status affects loan repayment behavior.
+
+### 3. **Loan Status Breakdown**
+- Visual representation of loan statuses categorized by year.
+- Includes metrics such as "Fully Paid," "Charged Off," and "Current" for each year from 2007 to 2014.
+
+### 4. **Grade and Sub-Grade Analysis**
+- A detailed breakdown of loan balances by grade and sub-grade, helping to identify risk levels associated with different loan categories.
+- Visualized through bar charts for easy comparison.
+
+### 5. **State-wise Analysis**
+- A comprehensive table showing loan statuses by state and year, allowing for regional comparisons.
+- Highlights trends in loan performance across different states.
+
+### 6. **Verification Status Insights**
+- Pie chart illustrating the total payment amounts for verified versus non-verified loan statuses.
+  - **Verified**: 220M
+  - **Not Verified**: 154M
+
+### 7. **Year-wise Loan Amounts**
+- Visualization of loan amounts over the years, indicating trends and fluctuations in lending practices.
+- Highlights significant years such as 2010, 2011, and 2014, with notable loan amounts.
+
+## Insights
+- The dashboard allows users to quickly assess the overall health of the loan portfolio.
+- It highlights potential areas of risk, particularly in states with high charged-off loans.
+- The verification status section emphasizes the importance of borrower verification in assessing loan performance.
+- Yearly trends can help in forecasting future lending behaviors and adjusting strategies accordingly.
+
+## Usage
+This dashboard can be utilized by:
+- Bank executives for strategic decision-making.
+- Analysts for in-depth data exploration.
+- Risk management teams for identifying potential problem areas.
+
+## Conclusion
+The Bank Loan Dashboard serves as a powerful tool for visualizing and analyzing loan data, enabling stakeholders to make informed decisions based on comprehensive insights.
 
 ![image](https://github.com/user-attachments/assets/d39f2b16-2e3c-4175-bfeb-4935c28192b6)
 
