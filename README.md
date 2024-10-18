@@ -158,9 +158,56 @@ This dashboard is designed for bank analysts and decision-makers to monitor loan
 ![3](https://github.com/user-attachments/assets/197ff85c-7447-4176-8c74-ef27f23a63c6)
 
 
-# SQL Query
+# SQL Querys
 
-### SQL KPI - 1
+## Overview
+This SQL query calculates the total loan amount grouped by year based on the last payment date.
+
+## Tables
+- **finance_1**: Contains loan amounts and related data.
+- **finance_2**: Contains payment dates and related identifiers.
+
+### Explanation
+
+1. **SELECT Statement**:
+   - **YEAR(f2.last_pymnt_d) AS Year**: This extracts the year from the `last_pymnt_d` column in the `finance_2` table, renaming it to `Year`.
+   - **SUM(f1.loan_amnt) AS Total_Loan_amount**: This calculates the total amount of loans from the `loan_amnt` column in the `finance_1` table, renaming it to `Total_Loan_amount`.
+
+2. **FROM Clause**:
+   - **finance_1 f1 JOIN finance_2 f2 ON f1.id = f2.id**: This joins the two tables (`finance_1` and `finance_2`) on the `id` field, allowing access to both tables' data.
+
+3. **GROUP BY Clause**:
+   - **GROUP BY Year**: This groups the results by the extracted year, allowing the `SUM` function to compute the total loan amount for each year.
+
+### Result Insights
+
+The result grid indicates the total loan amounts for various years. For example:
+- In **2011**, the total loan amount was **51,358,750**.
+- In **2013**, it was **103,897,825**.
+- The data continues for other years, providing a year-wise summary of total loan amounts.
+
+### Use Case
+
+This type of query is useful for financial analysis, allowing stakeholders to:
+- Monitor loan trends over the years.
+- Identify peak loan periods.
+- Make informed decisions based on historical loan data.
+
+### Insights
+
+When documenting this SQL query, consider including:
+- **Purpose**: Explain what the query does and its importance.
+- **Tables Used**: Describe the structure of `finance_1` and `finance_2`, including relevant fields.
+- **Sample Results**: Include a sample output to illustrate what the query returns.
+- **Usage**: Provide context on how this query can be utilized in financial reporting or decision-making.
+
+## Sample Output
+| Year | Total_Loan_amount |
+|------|-------------------|
+| 2011 | 51,358,750        |
+| 2012 | 97,293,500        |
+| 2013 | 103,897,825       |
+| ...  | ...               |
 
 Insert Query :
 
@@ -173,6 +220,54 @@ Output Query :
 
 ### SQL KPI - 2
 
+## Overview
+This SQL query computes the total revolving balance grouped by grade and sub-grade from the financial datasets.
+
+## Tables
+- **finance_1**: Contains grade and sub-grade information.
+- **finance_2**: Contains revolving balance amounts.
+
+### Explanation
+
+1. **SELECT Statement**:
+   - **f1.grade, f1.sub_grade**: This selects the `grade` and `sub_grade` columns from the `finance_1` table.
+   - **SUM(f2.revol_bal) AS Total_revol_bal**: This calculates the total revolving balance from the `revol_bal` column in the `finance_2` table, renaming it to `Total_revol_bal`.
+
+2. **FROM Clause**:
+   - **finance_1 f1 JOIN finance_2 f2 ON f1.id = f2.id**: This joins the two tables based on the `id` field, linking relevant records from both tables.
+
+3. **GROUP BY Clause**:
+   - **GROUP BY f1.grade, f1.sub_grade**: This groups the results by both `grade` and `sub_grade`, allowing the `SUM` function to compute total revolving balances for each combination of grade and sub-grade.
+
+4. **ORDER BY Clause**:
+   - **ORDER BY f1.grade, f1.sub_grade**: This orders the results first by `grade` and then by `sub_grade`, making it easier to read and analyze.
+
+### Result Insights
+
+The result grid shows the total revolving balances for each grade and sub-grade combination. For example:
+- For **Grade A**, sub-grade **A1** has a total revolving balance of **11,365,196**.
+- The data continues for other grades and sub-grades, providing a comprehensive overview of revolving balances.
+
+### Use Case
+
+This query is useful for financial analysis and reporting, allowing stakeholders to:
+- Understand the distribution of revolving balances across different grades and sub-grades.
+- Identify trends or patterns in revolving balances that could inform credit risk assessments or financial strategies.
+
+## Sample Output
+| Grade | Sub_Grade | Total_Revol_Bal |
+|-------|-----------|------------------|
+| A     | A1        | 11,365,196       |
+| A     | A2        | 14,004,780       |
+| A     | A3        | 19,543,922       |
+| A     | A4        | 34,557,156       |
+| A     | A5        | 35,303,045       |
+| B     | B1        | 21,842,079       |
+| B     | B2        | 26,447,439       |
+| ..    | ..        | ..               |
+## Usage
+This query helps in analyzing the distribution of revolving balances across different grades and sub-grades, aiding in financial decision-making and risk assessment.
+
 Insert Query :
 
 ![image](https://github.com/user-attachments/assets/e13844a9-6b87-49f5-bc2b-8efb7d2a43c0)
@@ -183,15 +278,103 @@ Output Query :
 
 ### SQL KPI - 3
 
-Insert Query :
+## Overview
+This SQL query calculates the total payment amounts based on the verification status of records from the financial datasets.
 
-![image](https://github.com/user-attachments/assets/016d6d76-8970-4464-adaa-349f3c2392cd)
+## Tables
+- **finance_1**: Contains verification status information.
+- **finance_2**: Contains payment amounts.
 
-Output Query :
+### Explanation
 
-![image](https://github.com/user-attachments/assets/09cd15a1-85f7-4628-83c8-b70359243757)
+1. **SELECT Statement**:
+   - **f1.verification_status**: This selects the `verification_status` column from the `finance_1` table.
+   - **SUM(f2.total_pymnt) AS Total_payment**: This calculates the total payments (`total_pymnt`) from the `finance_2` table, renaming it to `Total_payment`.
+
+2. **FROM Clause**:
+   - **finance_1 f1 JOIN finance_2 f2 ON f1.id = f2.id**: This joins the two tables based on the `id` field, linking relevant records from both tables.
+
+3. **GROUP BY Clause**:
+   - **GROUP BY f1.verification_status**: This groups the results by the `verification_status`, allowing the `SUM` function to compute total payments for each verification status.
+
+4. **HAVING Clause**:
+   - **HAVING f1.verification_status IN ('verified', 'Not verified')**: This filters the results to include only those records where the verification status is either 'verified' or 'Not verified'.
+
+### Result Insights
+
+The result grid shows the total payments for each verification status:
+- **Verified** status has a total payment of **219,892,334**.
+- **Not Verified** status has a total payment of **153,541,462**.
+
+### Use Case
+
+This query is useful for financial analysis and reporting, allowing stakeholders to:
+- Compare total payments between verified and not verified statuses.
+- Assess the impact of verification on payment amounts, which can inform credit risk assessments and financial strategies.
+
+## Sample Output
+| Verification_Status | Total_Payment |
+|---------------------|---------------|
+| Verified            | 219,892,334   |
+| Not Verified        | 153,541,462   |
+
+## Usage
+This query helps in analyzing the relationship between verification status and total payment amounts, aiding in financial decision-making and risk assessment.
+
+![kpi 3](https://github.com/user-attachments/assets/cd14704a-4e98-4a9a-8755-28c9471ca7d9)
 
 ### SQL KPI - 4
+
+## Overview
+This SQL query retrieves and analyzes loan statuses based on the address state and the date of the last credit pull from the financial datasets.
+
+## Tables
+- **finance_1**: Contains address state and loan status information.
+- **finance_2**: Contains last credit pull dates.
+- 
+### Explanation
+
+1. **SELECT Statement**:
+   - **f1.addr_state**: This selects the address state from the `finance_1` table.
+   - **f2.last_credit_pull_d**: This selects the date of the last credit pull from the `finance_2` table.
+   - **f1.loan_status**: This selects the loan status from the `finance_1` table.
+
+2. **FROM Clause**:
+   - **finance_1 f1 JOIN finance_2 f2 ON f1.id = f2.id**: This joins the two tables based on the `id` field, linking relevant records from both tables.
+
+3. **GROUP BY Clause**:
+   - **GROUP BY f1.addr_state, f2.last_credit_pull_d, f1.loan_status**: This groups the results by address state, last credit pull date, and loan status to aggregate the data accordingly.
+
+### Result Insights
+
+The result grid shows the following columns:
+- **addr_state**: The state where the address is located.
+- **last_credit_pull_d**: The date when the last credit check was performed.
+- **loan_status**: The status of the loan (e.g., Fully Paid, Paid).
+
+For example:
+- In **California (CA)**, the last credit pull was on **2012-08-01**, and the loan status is **Fully Paid**.
+- In **Texas (TX)**, there are multiple records with different last credit pull dates and statuses.
+
+### Use Case
+
+This query is useful for financial analysis and reporting, allowing stakeholders to:
+- Analyze loan statuses across different states and credit pull dates.
+- Identify trends related to loan repayments and credit checks.
+
+## Sample Output
+| addr_state | last_credit_pull_d | loan_status |
+|------------|---------------------|-------------|
+| CA         | 2012-08-01          | Fully Paid  |
+| TX         | 2012-08-01          | Fully Paid  |
+| TX         | 2016-05-01          | Paid        |
+| CA         | 2014-03-01          | Fully Paid  |
+| TX         | 2012-09-01          | Fully Paid  |
+| TX         | 2012-03-01          | Paid        |
+| ..         | ..                  | ..          |
+
+## Usage
+This query helps in analyzing the relationship between state, last credit pull dates, and loan statuses, aiding in financial decision-making and risk assessment.
 
 Insert Query :
 
@@ -202,6 +385,57 @@ Output Query :
 ![image](https://github.com/user-attachments/assets/e64b7097-a52e-4197-b6bd-4480bde7cd20)
 
 ### SQL KPI - 5
+
+## Overview
+This SQL query retrieves and analyzes the relationship between home ownership status and the dates of last payments made from the financial dataset
+
+## Tables
+- **finance_1**: Contains home ownership information.
+- **finance_2**: Contains last payment dates.
+
+### Explanation
+
+1. **SELECT Statement**:
+   - **f1.home_ownership**: This selects the home ownership status from the `finance_1` table.
+   - **f2.last_pymnt_d**: This selects the date of the last payment from the `finance_2` table.
+
+2. **FROM Clause**:
+   - **finance_1 f1 JOIN finance_2 f2 ON f1.id = f2.id**: This joins the two tables based on the `id` field, linking relevant records from both tables.
+
+3. **GROUP BY Clause**:
+   - **GROUP BY f1.home_ownership, f2.last_pymnt_d**: This groups the results by home ownership status and last payment date to aggregate the data accordingly.
+
+4. **ORDER BY Clause**:
+   - **ORDER BY f1.home_ownership**: This orders the results by home ownership status, allowing for easier analysis of the data.
+
+### Result Insights
+
+The result grid shows the following columns:
+- **home_ownership**: The type of home ownership (e.g., MORTGAGE).
+- **last_pymnt_d**: The date when the last payment was made.
+
+For example:
+- The dataset includes multiple entries for **MORTGAGE** with various last payment dates ranging from **2008-01-01** to **2008-08-01**.
+
+### Use Case
+
+This query is useful for financial analysis and reporting, allowing stakeholders to:
+- Analyze the relationship between home ownership status and payment history.
+- Identify trends in payment behavior based on home ownership types.
+
+## Sample Output
+| home_ownership | last_pymnt_d |
+|----------------|---------------|
+| MORTGAGE       | 2008-01-01    |
+| MORTGAGE       | 2008-03-01    |
+| MORTGAGE       | 2008-04-01    |
+| MORTGAGE       | 2008-05-01    |
+| MORTGAGE       | 2008-06-01    |
+| MORTGAGE       | 2008-07-01    |
+| MORTGAGE       | 2008-08-01    |
+| ..             | ..            |
+## Usage
+This query helps in analyzing the relationship between home ownership and payment dates, aiding in financial decision-making and understanding customer behavior.
 
 Insert Query :
 
