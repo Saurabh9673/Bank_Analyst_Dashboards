@@ -1,6 +1,6 @@
 # Bank_Analyst_Dashboards
 
-## ( Note : Excel Dashboard file is in branch 2(my new branch))
+## ( Note : The Excel Dashboard file is in branch 2(my new branch))
 ## Project Objective
 
 This is Bank Analytics project where we were provided with 2 datasets having 39k+ rows each and the objective was to analyze the growth that bank got within given years in loans.
